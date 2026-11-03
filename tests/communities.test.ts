@@ -1,0 +1,3 @@
+import{expect,it}from'vitest';import{detectCommunities}from'../src/communities';
+it('detects separate weighted communities and is deterministic',()=>{const ids=['a','b','c','d'];const edges=[{source:'a',target:'b',weight:9},{source:'c',target:'d',weight:9}];const result=detectCommunities(ids,edges);expect(result.get('a')).toBe(result.get('b'));expect(result.get('c')).toBe(result.get('d'));expect(result.get('a')).not.toBe(result.get('c'));expect([...detectCommunities(ids,edges)]).toEqual([...result])});
+it('keeps isolated nodes available and handles empty graphs',()=>{expect(detectCommunities([],[]).size).toBe(0);expect(detectCommunities(['a'],[]).has('a')).toBe(true)});
