@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env*
+*.log
+work/
+private-data/
+exports/
+*.csv
+*.zip
+*.tsbuildinfo
+!public/orbit-extension.zip
